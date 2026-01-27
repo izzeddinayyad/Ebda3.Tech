@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إبداع.تيك | المنصة الرقمية المتكاملة</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&family=Inter:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              darkBg: "#0f172a",
+              darkCard: "#1e293b",
+            },
+            borderRadius: {
+              "4xl": "2rem",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      :root {
+        --font-ar: "Cairo", sans-serif;
+        --font-en: "Inter", sans-serif;
+      }
+      body {
+        font-family: var(--font-ar);
+        transition: background-color 0.5s ease;
+      }
+      .en-mode {
+        font-family: var(--font-en);
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gradient-text {
+        background: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-gray-50 dark:bg-darkBg text-gray-900 dark:text-gray-100 transition-colors duration-500 overflow-x-hidden"
+  >
+    <nav
+      class="fixed w-full z-[100] bg-white/70 dark:bg-darkBg/70 backdrop-blur-xl border-b dark:border-gray-800"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <div class="text-2xl font-black gradient-text" id="nav-logo">
+          إبداع.تيك
+        </div>
+        <div class="flex items-center gap-4 md:gap-6">
+          <ul class="hidden md:flex gap-8 font-bold text-sm">
+            <li>
+              <a
+                href="#portfolio"
+                class="hover:text-indigo-500 transition"
+                id="nav-work"
+                >أعمالنا</a
+              >
+            </li>
+            <li>
+              <a
+                href="#pricing"
+                class="hover:text-indigo-500 transition"
+                id="nav-pricing"
+                >الأسعار</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="hover:text-indigo-500 transition"
+                id="nav-contact"
+                >اتصل بنا</a
+              >
+            </li>
+          </ul>
+
+          <button
+            onclick="toggleLanguage()"
+            class="px-3 py-1.5 rounded-xl border-2 border-indigo-500 text-indigo-500 font-bold hover:bg-indigo-500 hover:text-white transition text-xs uppercase"
+            id="lang-btn"
+          >
+            English
+          </button>
+
+          <button
+            onclick="toggleDarkMode()"
+            class="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 hover:ring-2 ring-indigo-500 transition"
+          >
+            <span id="theme-icon">🌙</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <section class="pt-32 pb-20 px-6 text-center">
+      <div
+        data-aos="zoom-out"
+        id="hero-badge"
+        class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-indigo-600 uppercase bg-indigo-100 dark:bg-indigo-900/30 rounded-full"
+      >
+        مستقبل الويب هنا
+      </div>
+      <h1
+        class="text-5xl md:text-7xl font-black mb-10 leading-[1.3]"
+        data-aos="fade-up"
+      >
+        <span id="hero-t1" class="block mb-4">نصمم تجارب</span>
+        <span class="gradient-text block" id="hero-t2">تخطف الأنظار</span>
+      </h1>
+      <p
+        class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg mb-10"
+        id="hero-desc"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        حوّل فكرتك إلى واقع رقمي باستخدام أحدث تقنيات Tailwind CSS و لغة العصر.
+      </p>
+      <div
+        class="flex flex-wrap justify-center gap-4"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <a
+          href="#contact"
+          id="btn-start"
+          class="px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold shadow-lg shadow-indigo-500/40 hover:-translate-y-1 transition"
+          >ابدأ مشروعك</a
+        >
+        <a
+          href="#portfolio"
+          id="btn-gallery"
+          class="px-8 py-4 bg-white dark:bg-gray-800 rounded-2xl font-bold border dark:border-gray-700 hover:bg-gray-50 transition"
+          >شاهد المعرض</a
+        >
+      </div>
+    </section>
+
+    <section class="py-20 px-6 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[160px]">
+        <div
+          class="md:col-span-2 md:row-span-2 bg-indigo-600 rounded-4xl p-10 text-white flex flex-col justify-center relative overflow-hidden group"
+          data-aos="fade-right"
+        >
+          <h3 class="text-7xl font-black mb-2">+150</h3>
+          <p id="stat-main" class="text-xl text-indigo-100 font-light">
+            مشروع تم تسليمه بنجاح
+          </p>
+          <div
+            class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"
+          ></div>
+        </div>
+        <div
+          class="md:col-span-2 md:row-span-1 bg-white dark:bg-darkCard rounded-4xl p-8 shadow-xl border dark:border-gray-800 flex items-center justify-between"
+          data-aos="fade-down"
+        >
+          <h4 id="stat-tech" class="font-bold text-xl">تقنياتنا</h4>
+          <div class="flex -space-x-3 space-x-reverse">
+            <span
+              class="w-12 h-12 rounded-full bg-blue-500 border-4 border-white dark:border-darkCard flex items-center justify-center text-[10px] text-white"
+              >React</span
+            >
+            <span
+              class="w-12 h-12 rounded-full bg-sky-400 border-4 border-white dark:border-darkCard flex items-center justify-center text-[10px] text-white"
+              >Tailwind</span
+            >
+            <span
+              class="w-12 h-12 rounded-full bg-black border-4 border-white dark:border-darkCard flex items-center justify-center text-[10px] text-white"
+              >Next.js</span
+            >
+          </div>
+        </div>
+        <div
+          class="md:col-span-1 md:row-span-1 bg-purple-500 rounded-4xl p-6 text-white text-center flex flex-col justify-center"
+          data-aos="zoom-in"
+        >
+          <span class="text-3xl font-bold">5+</span>
+          <p
+            id="stat-exp"
+            class="text-xs opacity-80 uppercase tracking-tighter"
+          >
+            سنوات خبرة
+          </p>
+        </div>
+        <div
+          class="md:col-span-1 md:row-span-1 bg-emerald-400 rounded-4xl p-6 text-gray-900 text-center flex flex-col justify-center"
+          data-aos="zoom-in"
+          data-aos-delay="100"
+        >
+          <span class="text-3xl font-bold">100%</span>
+          <p
+            id="stat-safety"
+            class="text-xs font-bold uppercase tracking-tighter"
+          >
+            أمان وثبات
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="portfolio" class="py-24 px-6">
+      <div class="max-w-6xl mx-auto">
+        <h2
+          id="port-title"
+          class="text-3xl md:text-4xl font-black text-center mb-16"
+          data-aos="fade-up"
+        >
+          أحدث أعمالنا
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="group relative overflow-hidden rounded-[2rem] bg-gray-200 h-80 shadow-xl"
+            data-aos="zoom-in"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-indigo-900/90 to-transparent flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <h3 class="text-white font-bold text-xl mb-2">
+                متجر إلكتروني مودرن
+              </h3>
+              <p class="text-indigo-200 text-sm">Next.js & Tailwind</p>
+            </div>
+          </div>
+
+          <div
+            class="group relative overflow-hidden rounded-[2rem] bg-gray-200 h-80 shadow-xl"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-purple-900/90 to-transparent flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <h3 class="text-white font-bold text-xl mb-2">منصة تعليمية</h3>
+              <p class="text-purple-200 text-sm">React & Firebase</p>
+            </div>
+          </div>
+
+          <div
+            class="group relative overflow-hidden rounded-[2rem] bg-gray-200 h-80 shadow-xl"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bbbda5366392?auto=format&fit=crop&q=80&w=800"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-emerald-900/90 to-transparent flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <h3 class="text-white font-bold text-xl mb-2">تطبيق لوحة تحكم</h3>
+              <p class="text-emerald-200 text-sm">Dashboard UI</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="pricing" class="py-24 px-6 bg-gray-100/50 dark:bg-gray-900/30">
+      <div class="max-w-5xl mx-auto text-center">
+        <h2
+          id="price-title"
+          class="text-4xl font-black mb-12"
+          data-aos="fade-up"
+        >
+          خطط الأسعار
+        </h2>
+        <div
+          class="flex items-center justify-center gap-4 mb-16"
+          data-aos="fade-up"
+        >
+          <span id="price-month" class="font-bold">شهرياً</span>
+          <button
+            onclick="togglePricing()"
+            id="price-toggle"
+            class="w-16 h-8 bg-indigo-600 rounded-full p-1 relative transition-all"
+          >
+            <div
+              id="toggle-dot"
+              class="w-6 h-6 bg-white rounded-full transition-transform duration-300 translate-x-0"
+            ></div>
+          </button>
+          <span id="price-year" class="font-bold text-gray-400">سنوياً</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            class="bg-white dark:bg-darkCard rounded-4xl p-10 shadow-xl border dark:border-gray-800 text-right"
+            data-aos="fade-right"
+          >
+            <h3 id="plan-b-name" class="text-2xl font-bold mb-6">الأساسية</h3>
+            <div class="text-5xl font-black mb-8">
+              $<span id="price-basic">49</span>
+            </div>
+            <ul class="space-y-4 mb-10 text-gray-500" id="plan-b-list">
+              <li>✅ دعم فني 12 ساعة</li>
+              <li>✅ 5 صفحات مخصصة</li>
+              <li>✅ استضافة مجانية</li>
+            </ul>
+            <button
+              id="plan-b-btn"
+              class="w-full py-4 rounded-2xl border-2 border-indigo-600 text-indigo-600 font-bold hover:bg-indigo-600 hover:text-white transition"
+            >
+              ابدأ الآن
+            </button>
+          </div>
+          <div
+            class="bg-indigo-600 rounded-4xl p-10 shadow-2xl text-white relative transform md:scale-105 text-right"
+            data-aos="fade-left"
+          >
+            <h3 id="plan-p-name" class="text-2xl font-bold mb-6 text-right">
+              الإبداعية
+            </h3>
+            <div class="text-5xl font-black mb-8 text-right">
+              $<span id="price-pro">99</span>
+            </div>
+            <ul class="space-y-4 mb-10 opacity-90" id="plan-p-list">
+              <li>✅ دعم فني 24/7</li>
+              <li>✅ صفحات غير محدودة</li>
+              <li>✅ لوحة تحكم إدارية</li>
+            </ul>
+            <button
+              id="plan-p-btn"
+              class="w-full py-4 rounded-2xl bg-white text-indigo-600 font-bold shadow-lg hover:bg-gray-100 transition"
+            >
+              اشترك الآن
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-24 px-6 bg-white dark:bg-darkBg">
+      <div class="max-w-4xl mx-auto">
+        <h2
+          id="faq-title"
+          class="text-3xl md:text-4xl font-black text-center mb-16"
+          data-aos="fade-up"
+        >
+          الأسئلة الشائعة
+        </h2>
+
+        <div class="space-y-4">
+          <div
+            class="border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+          >
+            <button
+              onclick="toggleFaq(1)"
+              class="w-full flex justify-between items-center p-6 text-right bg-gray-50 dark:bg-darkCard hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            >
+              <span
+                id="q1"
+                class="font-bold text-lg text-gray-800 dark:text-white"
+                >كم يستغرق بناء الموقع؟</span
+              >
+              <span
+                id="icon-1"
+                class="text-indigo-600 transform transition-transform"
+                >▼</span
+              >
+            </button>
+            <div
+              id="ans-1"
+              class="hidden p-6 bg-white dark:bg-darkBg border-t dark:border-gray-800 text-gray-600 dark:text-gray-400"
+            >
+              <p id="a1">
+                يستغرق العمل عادة من 7 إلى 14 يوم عمل حسب حجم المشروع والمتطلبات
+                التقنية.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <button
+              onclick="toggleFaq(2)"
+              class="w-full flex justify-between items-center p-6 text-right bg-gray-50 dark:bg-darkCard hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            >
+              <span
+                id="q2"
+                class="font-bold text-lg text-gray-800 dark:text-white"
+                >هل الموقع يدعم الهواتف الذكية؟</span
+              >
+              <span
+                id="icon-2"
+                class="text-indigo-600 transform transition-transform"
+                >▼</span
+              >
+            </button>
+            <div
+              id="ans-2"
+              class="hidden p-6 bg-white dark:bg-darkBg border-t dark:border-gray-800 text-gray-600 dark:text-gray-400"
+            >
+              <p id="a2">
+                بكل تأكيد، جميع مواقعنا مصممة بتقنية الـ Responsive التي تضمن
+                ظهور الموقع بشكل مثالي على كافة الشاشات.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <button
+              onclick="toggleFaq(3)"
+              class="w-full flex justify-between items-center p-6 text-right bg-gray-50 dark:bg-darkCard hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            >
+              <span
+                id="q3"
+                class="font-bold text-lg text-gray-800 dark:text-white"
+                >هل توفرون خدمة الدعم الفني؟</span
+              >
+              <span
+                id="icon-3"
+                class="text-indigo-600 transform transition-transform"
+                >▼</span
+              >
+            </button>
+            <div
+              id="ans-3"
+              class="hidden p-6 bg-white dark:bg-darkBg border-t dark:border-gray-800 text-gray-600 dark:text-gray-400"
+            >
+              <p id="a3">
+                نعم، نوفر دعماً فنياً مستمراً وضماناً على الأخطاء البرمجية لمدة
+                6 أشهر بعد إطلاق المشروع.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="py-24 px-6">
+      <div
+        class="max-w-4xl mx-auto bg-white dark:bg-darkCard rounded-[3rem] shadow-2xl overflow-hidden flex flex-col md:flex-row"
+        data-aos="zoom-in"
+      >
+        <div
+          class="bg-indigo-600 p-12 text-white md:w-1/3 flex flex-col justify-center"
+        >
+          <h2 id="contact-h" class="text-3xl font-black mb-6">تواصل معنا</h2>
+          <p id="contact-p" class="opacity-80 mb-8 leading-relaxed">
+            دعنا نبدأ برحلة نجاح جديدة اليوم.
+          </p>
+        </div>
+        <form class="p-12 md:w-2/3 space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <input
+              type="text"
+              id="f-name"
+              placeholder="الاسم الكامل"
+              class="w-full px-6 py-4 rounded-2xl bg-gray-50 dark:bg-gray-800 border dark:border-gray-700 focus:ring-2 ring-indigo-500 outline-none transition"
+            />
+            <input
+              type="email"
+              id="f-email"
+              placeholder="البريد الإلكتروني"
+              class="w-full px-6 py-4 rounded-2xl bg-gray-50 dark:bg-gray-800 border dark:border-gray-700 focus:ring-2 ring-indigo-500 outline-none transition"
+            />
+          </div>
+          <textarea
+            rows="4"
+            id="f-msg"
+            placeholder="كيف يمكننا خدمتك؟"
+            class="w-full px-6 py-4 rounded-2xl bg-gray-50 dark:bg-gray-800 border dark:border-gray-700 focus:ring-2 ring-indigo-500 outline-none transition"
+          ></textarea>
+          <button
+            type="button"
+            id="f-btn"
+            class="w-full py-4 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg hover:bg-indigo-700 transition transform hover:-translate-y-1"
+          >
+            إرسال الطلب
+          </button>
+        </form>
+      </div>
+    </section>
+    <section class="py-24 px-6 bg-gray-50 dark:bg-darkBg/50">
+      <div class="max-w-6xl mx-auto">
+        <h2
+          id="testi-title"
+          class="text-3xl md:text-4xl font-black text-center mb-16"
+          data-aos="fade-up"
+        >
+          ماذا يقول شركاؤنا؟
+        </h2>
+
+        <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+          <div
+            class="break-inside-avoid bg-white dark:bg-darkCard p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 transition-transform hover:-translate-y-2"
+            data-aos="fade-up"
+          >
+            <div class="flex text-amber-400 mb-4 text-sm">★★★★★</div>
+            <p
+              id="testi-1-text"
+              class="text-gray-600 dark:text-gray-400 italic mb-6"
+            >
+              "فريق عمل مبدع، حولوا خيالي إلى موقع حقيقي وبسرعة خيالية! الاهتمام
+              بالتفاصيل مذهل."
+            </p>
+            <div
+              class="flex items-center gap-4 border-t dark:border-gray-700 pt-4"
+            >
+              <div
+                class="w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center text-xl"
+              >
+                👤
+              </div>
+              <div>
+                <h4 id="testi-1-name" class="font-bold text-sm">سالم الحربي</h4>
+                <p id="testi-1-job" class="text-xs text-indigo-500">
+                  مؤسس متجر طيبة
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="break-inside-avoid bg-indigo-600 p-8 rounded-3xl shadow-xl text-white transform md:scale-105"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="text-indigo-200 mb-4 text-2xl">"</div>
+            <p id="testi-2-text" class="italic mb-6 text-lg">
+              "التعامل مع إبداع.تيك كان أفضل قرار تقني اتخذناه. السرعة والأداء
+              للموقع الجديد لا يعلى عليهما."
+            </p>
+            <div class="flex items-center gap-4 border-t border-white/20 pt-4">
+              <div
+                class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-xl"
+              >
+                🚀
+              </div>
+              <div>
+                <h4 id="testi-2-name" class="font-bold text-sm">ليلى محمود</h4>
+                <p id="testi-2-job" class="text-xs text-indigo-200">
+                  مديرة تقنية
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="break-inside-avoid bg-white dark:bg-darkCard p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 transition-transform hover:-translate-y-2"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="flex text-amber-400 mb-4 text-sm">★★★★★</div>
+            <p
+              id="testi-3-text"
+              class="text-gray-600 dark:text-gray-400 italic mb-6"
+            >
+              "تصميم عصري جداً ومتوافق مع الموبايل بشكل ممتاز. تجربة مستخدم
+              رائعة."
+            </p>
+            <div
+              class="flex items-center gap-4 border-t dark:border-gray-700 pt-4"
+            >
+              <div
+                class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-xl"
+              >
+                💎
+              </div>
+              <div>
+                <h4 id="testi-3-name" class="font-bold text-sm">خالد منصور</h4>
+                <p id="testi-3-job" class="text-xs text-purple-500">
+                  رائد أعمال
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-10 text-center border-t dark:border-gray-800">
+      <p id="footer-text" class="text-gray-400 text-sm italic">
+        Made with love by izzeddin © 2026
+      </p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+    <!-- <script>
+        AOS.init({ duration: 1000, once: true });
+
+        const translations = {
+            ar: {
+                navWork: "أعمالنا", navPricing: "الأسعار", navContact: "اتصل بنا", navLogo: "إبداع.تيك", langBtn: "English",
+                heroBadge: "مستقبل الويب هنا", heroT1: "نصمم تجارب", heroT2: "تخطف الأنظار",
+                heroDesc: "حوّل فكرتك إلى واقع رقمي باستخدام أحدث تقنيات Tailwind CSS و لغة العصر.",
+                btnStart: "ابدأ مشروعك", btnGallery: "شاهد المعرض",
+                statMain: "مشروع تم تسليمه بنجاح", statTech: "تقنياتنا", statExp: "سنوات خبرة", statSafety: "أمان وثبات",
+                priceTitle: "خطط الأسعار", priceMonth: "شهرياً", priceYear: "سنوياً",
+                planBName: "الأساسية", planPName: "الإبداعية", planBBtn: "ابدأ الآن", planPBtn: "اشترك الآن",
+                planBList: "<li>✅ دعم فني 12 ساعة</li><li>✅ 5 صفحات مخصصة</li><li>✅ استضافة مجانية</li>",
+                planPList: "<li>✅ دعم فني 24/7</li><li>✅ صفحات غير محدودة</li><li>✅ لوحة تحكم إدارية</li>",
+                contactH: "تواصل معنا", contactP: "دعنا نبدأ برحلة نجاح جديدة اليوم.",
+                fName: "الاسم الكامل", fEmail: "البريد الإلكتروني", fMsg: "كيف يمكننا خدمتك؟", fBtn: "إرسال الطلب",
+                footer: "بني بشغف باستخدام Tailwind Labs & AOS © 2026", dir: "rtl", align: "right"
+            },
+            en: {
+                navWork: "Portfolio", navPricing: "Pricing", navContact: "Contact", navLogo: "Ebda3.Tech", langBtn: "العربية",
+                heroBadge: "FUTURE OF WEB IS HERE", heroT1: "We Design Experiences", heroT2: "That Capture Eyes",
+                heroDesc: "Transform your idea into digital reality using the latest Tailwind CSS technologies.",
+                btnStart: "Start Project", btnGallery: "View Gallery",
+                statMain: "Projects successfully delivered", statTech: "Our Tech", statExp: "Years Exp", statSafety: "Safety & Stability",
+                priceTitle: "Pricing Plans", priceMonth: "Monthly", priceYear: "Yearly",
+                planBName: "Basic Plan", planPName: "Creative Plan", planBBtn: "Get Started", planPBtn: "Subscribe Now",
+                planBList: "<li>✅ 12h Technical Support</li><li>✅ 5 Custom Pages</li><li>✅ Free Hosting</li>",
+                planPList: "<li>✅ 24/7 Premium Support</li><li>✅ Unlimited Pages</li><li>✅ Admin Dashboard</li>",
+                contactH: "Contact Us", contactP: "Let's start a new success journey today.",
+                fName: "Full Name", fEmail: "Email Address", fMsg: "How can we help you?", fBtn: "Send Request",
+                footer: "Built with passion using Tailwind Labs & AOS © 2026", dir: "ltr", align: "left"
+            }
+        };
+
+        let currentLang = 'ar';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const data = translations[currentLang];
+
+            // Update UI Elements
+            document.getElementById('nav-logo').innerText = data.navLogo;
+            document.getElementById('nav-work').innerText = data.navWork;
+            document.getElementById('nav-pricing').innerText = data.navPricing;
+            document.getElementById('nav-contact').innerText = data.navContact;
+            document.getElementById('lang-btn').innerText = data.langBtn;
+            document.getElementById('hero-badge').innerText = data.heroBadge;
+            document.getElementById('hero-t1').innerText = data.heroT1;
+            document.getElementById('hero-t2').innerText = data.heroT2;
+            document.getElementById('hero-desc').innerText = data.heroDesc;
+            document.getElementById('btn-start').innerText = data.btnStart;
+            document.getElementById('btn-gallery').innerText = data.btnGallery;
+            document.getElementById('stat-main').innerText = data.statMain;
+            document.getElementById('stat-tech').innerText = data.statTech;
+            document.getElementById('stat-exp').innerText = data.statExp;
+            document.getElementById('stat-safety').innerText = data.statSafety;
+            document.getElementById('price-title').innerText = data.priceTitle;
+            document.getElementById('price-month').innerText = data.priceMonth;
+            document.getElementById('price-year').innerText = data.priceYear;
+            document.getElementById('plan-b-name').innerText = data.planBName;
+            document.getElementById('plan-p-name').innerText = data.planPName;
+            document.getElementById('plan-b-btn').innerText = data.planBBtn;
+            document.getElementById('plan-p-btn').innerText = data.planPBtn;
+            document.getElementById('plan-b-list').innerHTML = data.planBList;
+            document.getElementById('plan-p-list').innerHTML = data.planPList;
+            document.getElementById('contact-h').innerText = data.contactH;
+            document.getElementById('contact-p').innerText = data.contactP;
+            document.getElementById('f-name').placeholder = data.fName;
+            document.getElementById('f-email').placeholder = data.fEmail;
+            document.getElementById('f-msg').placeholder = data.fMsg;
+            document.getElementById('f-btn').innerText = data.fBtn;
+            document.getElementById('footer-text').innerText = data.footer;
+
+            // Page Direction & Alignment
+            document.documentElement.dir = data.dir;
+            document.body.className = currentLang === 'en' ? 'en-mode bg-gray-50 dark:bg-darkBg text-gray-900 dark:text-gray-100' : 'bg-gray-50 dark:bg-darkBg text-gray-900 dark:text-gray-100';
+            
+            // Fix text alignment for cards
+            const textElements = document.querySelectorAll('.text-right, .text-left');
+            textElements.forEach(el => {
+                el.classList.remove('text-right', 'text-left');
+                el.classList.add(currentLang === 'ar' ? 'text-right' : 'text-left');
+            });
+        }
+
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            html.classList.toggle('dark');
+            icon.innerText = html.classList.contains('dark') ? '☀️' : '🌙';
+        }
+
+        let isYearly = false;
+        function togglePricing() {
+            isYearly = !isYearly;
+            const dot = document.getElementById('toggle-dot');
+            const basic = document.getElementById('price-basic');
+            const pro = document.getElementById('price-pro');
+            
+            // Adjust toggle animation for LTR/RTL
+            const moveX = document.documentElement.dir === 'rtl' ? (isYearly ? '-32px' : '0') : (isYearly ? '32px' : '0');
+            dot.style.transform = `translateX(${moveX})`;
+            
+            basic.innerText = isYearly ? '399' : '49';
+            pro.innerText = isYearly ? '899' : '99';
+        }
+    </script> -->
+  </body>
+</html>
